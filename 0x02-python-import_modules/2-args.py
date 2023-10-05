@@ -1,16 +1,14 @@
 #!/usr/bin/python3
 
 if __name__ == "__main__":
-    from calculator_1 import add, sub, mul, div
     import sys
 
-    if len(sys.argv) - 1 != 3:
-        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
-        sys.exit(1)
-    ops = {"+": add, "-": sub, "*": mul, "/": div}
-    if sys.argv[2] not in list(ops.keys()):
-        print("Unknown operator. Available operators: +, -, * and /")
-        sys.exit(1)
-    n1 = int(sys.argv[1])
-    n2 = int(sys.argv[3])
-    print("{} {} {} = {}".format(n1, sys.argv[2], n2, ops[sys.argv[2]](n1, n2)))
+    c = len(sys.argv) - 1
+    if c == 0:
+        print("0 arguments.")
+    elif c == 1:
+        print("1 argument:")
+    else:
+        print("{} arguments:".format(c))
+    for i in range(c):
+        print("{}: {}".format(i + 1, sys.argv[i + 1]))
